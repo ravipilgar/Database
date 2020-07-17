@@ -1,0 +1,14 @@
+Assignment:2
+
+1. which field of customer table is primary key?
+1. CNUM is primary key.
+
+2. what is the fourth column of customer table?
+2. Rating is the fourth column of customer table.
+
+3. what is the another word for row? for column?
+3. Row:Tuple, Entity, opportunity
+   column:Attribute, method
+
+4. why isn't it possible to see the first five row of a table?
+4. Row of the table are not stored sequentially.row of the table are scattered (fragmented) all over the    DB server HD. when you insert a table whenever the system find free space in DB server it will store    the row there.when you select a table the order of rows in the output,depends on the row address, it    will always be in assending order of row address. 
