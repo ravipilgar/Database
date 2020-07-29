@@ -1,0 +1,84 @@
+
+show databases;
+
+create database employee;
+
+use employee;
+
+
+create table salespeople
+(
+snum int(4),
+sname varchar(10),
+city varchar(10),
+comm float(3,2)
+);
+
+desc emploee;
+
+//insert single row in table
+insert into salespeople(snum,sname,city,comm) values
+(1001,'Peel','London',.12);
+
+//insert multiple rows in table
+insert into salespeople(snum,sname,city,comm) values
+(1002,'Serres','San Jose',.13),
+(1004,'Motika','London',.11),
+(1007,'Rifkin','Barcelona',.15),
+(1003,'Axelrod','New York',.10);
+
+
+
+select * from employee;
+
+================================================================
+
+create table customer
+(
+cnum int(4),
+cname varchar(10),
+city varchar(10),
+rating int(4),
+snum int(4)
+);
+
+desc emploee;
+
+insert into customer(cnum,cname,city,rating,snum) values
+(2001,'Hoffman','London',100,1001),
+(2002,'Giovanni','Rome',200,1003),
+(2003,'Hoffman','San Jose',200,1002),
+(2004,'Liu','Berlin',300,1002),
+(2006,'Grass','London',100,1001),
+(2008,'Cisneros','San Jose',300,1007),
+(2007,'Pereira','Rome',100,1004);
+
+select * from employee;
+
+================================================================
+
+create table orders
+(
+onum int(4),
+amt float(7,2),
+odate date,
+cnum int(4),
+snum int(4)
+);
+
+desc emploee;
+
+insert into orders(onum,amt,odate,cnum,snum) values
+(3001,18.69,'1990-10-03',2008,1007),
+(3003,767.19,'1990-10-03',2008,1007),
+(3002,1900.10,'1990-10-03',2008,1007),
+(3005,5160.45,'1990-10-03',2008,1007),
+(3006,1098.16,'1990-10-03',2008,1007),
+(3009,1713.23,'1990-10-04',2008,1007),
+(3007,75.75,'1990-10-04',2008,1007),
+(3008,4723.00,'1990-10-05',2008,1007),
+(3010,1309.95,'1990-10-05',2008,1007),
+(3011,9891.88,'1990-10-06',2008,1007);
+
+select * from employee;
+

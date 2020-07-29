@@ -1,0 +1,31 @@
+						Assignment 16
+
+
+
+Q.1.
+
+Answer :-
+
+create index in_Order on Orders(Odate);
+
+
+Q.2.
+
+Answer :-
+
+alter table Orders add primary key(Onum);
+
+
+Q.3.
+
+Answer :-
+
+create index in_Odate ON Orders(Odate);
+
+
+Q.4.
+
+Answer :-
+
+alter table Customers modify Rating in Primary Key;
+

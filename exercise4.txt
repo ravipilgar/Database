@@ -1,0 +1,66 @@
+1. Display the minimum Status in the Supplier table.
+select min(status) from supplier;
+====================================================================================
+
+2. Display the maximum Weight in the Parts table.
+select max(weight) from parts;
+====================================================================================
+
+3. Display the average Weight of the Parts.
+
+
+select avg(weight) from parts;
+====================================================================================
+
+4. Display the total Quantity sold for part ‘P1’.
+
+select count(`p#`) from parts;
+====================================================================================
+
+5. Display the total Quantity sold for each part.
+
+select pname,count(`p#`) from parts group by pname;
+====================================================================================
+
+6. Display the average Quantity sold for each part.
+
+select avg(`p#`) from parts group by pname;
+====================================================================================
+
+8. Display the Status and the count of Suppliers with that Status.
+
+select status,count(`s#`) as 'count of Suppliers' from supplier group by status;
+====================================================================================
+
+9. Display the count of Projects going on in different cities.
+
+select city,count(jname) 'No of project' from projects group by city;
+====================================================================================
+
+10. What is the difference between COUNT(Status) and COUNT(*) ?
+COUNT(Status) does not consider NULL rows and gives total count of status except 
+NULL rows;
+COUNT(*) consider NULL rows and gives total count of rows including NULL rows.
+====================================================================================
+
+11. Display the Status and the Count of Suppliers with that Status in the following 
+format as shown below:-
+
+Status	 Count
+Ten 	   1
+Twenty     2
+Thirty     3
+
+select case
+
+when status=10 then 'Ten'
+
+when status=20 then 'Twenty'
+
+when status=30 then 'Thirty'
+
+end Status,count(status) count
+
+from supplier group by status;
+
+====================================================================================

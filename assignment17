@@ -1,0 +1,48 @@
+						Assignment 17
+
+
+
+Q.1.
+
+Answer :-
+
+create table Orders1(
+Onum int(4) unique,
+Amt float(9,2),
+Odate date,
+Snum int(4),
+Cnum int(4),
+Unique(Snum, Cnum)
+);
+
+
+Q.2.
+
+Answer :-
+
+create table SalesPeople1(
+Snum int (4) primary key,
+Sname varchar(20)
+check(Sname >= 'A' and Sname < 'N'),
+City varchar(10),
+Comm float(5,2) default .10 not null
+check(ifnull(Comm, .10))
+);
+
+
+Q.3.
+
+Answer :-
+
+create table Orders2(
+Onum int not null,
+Amt float(9,2),
+Odate date,
+Cnum int not null,
+Snum int not null,
+CONSTRAINT ON_CN_SN check( Cnum > Cnum AND Cnum > Snum) 
+);
+
+
+
+
