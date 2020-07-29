@@ -1,0 +1,113 @@
+					Assignment:8
+
+1) Assume each salesperson has a 12% commission. Write a query on the orders
+table that will produce the order number, the salesperson number, and the amount
+of the salesperson’s commission for that order.
+
+select *from orders;
+Onum    Amt     Odate           Cnum    Snum
+3001	18.69	1990-10-03	2008	1007
+3003	767.19	1990-10-03	2001	1001
+3002	1900.10	1990-10-03	2007	1004
+3005	1560.45	1990-10-03	2003	1002
+3006	1098.16	1990-10-03	2008	1007
+3009	1713.23	1990-10-04	2002	1003
+3007	75.75	1990-10-04	2004	1002
+3008	4723.00	1990-10-05	2006	1001
+3010	1309.95	1990-10-06	2004	1002
+3011	9891.88	1990-10-06	2006	1001
+
+select count(distinct odate,snum) from orders ; 
+onum    snum    amt     commission
+3001	1007	18.69	2.242800
+3003	1001	767.19	92.062800
+3002	1004	1900.10	228.011997
+3005	1002	1560.45	187.253994
+3006	1007	1098.16	131.779204
+3009	1003	1713.23	205.587598
+3007	1002	75.75	9.090000
+3008	1001	4723.00	566.760000
+3010	1002	1309.95	157.193994
+3011	1001	9891.88	1187.025586
+
+---------------------------------------------------------------------------------------------
+
+2) Write a query on the Customers table that will find the highest rating in each city.
+Put the output in this form:
+
+select *from customers;
+
+Cnum    Cname           City            Rating  Snum
+2001	Hoffman		London		100	1001
+2002	Giovann		Rom		200	1003
+2003	Liu		San Jose	200	1002
+2004	Grass		Berlin		300	1002
+2006	Clemens		London		100	1001
+2008	Cisneros	San Jose	300	1007
+2007	Pereira		Rome		100	1004
+2008	rohan		London		200	1005
+2009	rockey				200	1008
+
+select max(rating) from customers
+group by city;
+max(rating)
+300
+
+-----------------------------------------------------------------------------------------
+
+3. Write a query that lists customers in descending order of rating. Output the rating
+field first, followed by the customer’s name and number?
+
+select *from customers;
+
+Cnum    Cname           City            Rating  Snum
+2001	Hoffman		London		100	1001
+2002	Giovann		Rom		200	1003
+2003	Liu		San Jose	200	1002
+2004	Grass		Berlin		300	1002
+2006	Clemens		London		100	1001
+2008	Cisneros	San Jose	300	1007
+2007	Pereira		Rome		100	1004
+2008	rohan		London		200	1005
+2009	rockey				200	1008
+
+select rating, cname, cnum from customers order by rating desc;
+rating  cname           cnum
+300	Grass		2004
+300	Cisneros	2008
+200	Giovanni	2002
+200	Liu		2003
+200	rohan		2008
+200	rockey		2009
+100	Hoffman		2001
+100	Clemens		2006
+100	Pereira		2007
+
+-------------------------------------------------------------------------------------------
+
+4) Write a query that totals the orders for each day and places the results in
+descending order.
+
+select *from orders;
+Onum    Amt     Odate           Cnum    Snum
+3001	18.69	1990-10-03	2008	1007
+3003	767.19	1990-10-03	2001	1001
+3002	1900.10	1990-10-03	2007	1004
+3005	1560.45	1990-10-03	2003	1002
+3006	1098.16	1990-10-03	2008	1007
+3009	1713.23	1990-10-04	2002	1003
+3007	75.75	1990-10-04	2004	1002
+3008	4723.00	1990-10-05	2006	1001
+3010	1309.95	1990-10-06	2004	1002
+3011	9891.88	1990-10-06	2006	1001
+
+SELECT count(odate) "TOTAL ORDERS",odate
+FROM orders
+GROUP BY odate
+ORDER BY "TOTAL ORDERS";
+
+TOTAL ORDERS	 odate
+5		 1990-10-03
+2	         1990-10-04
+1	         1990-10-05
+2	          1990-10-06
